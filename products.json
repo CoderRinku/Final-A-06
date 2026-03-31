@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "AI Writing Pro",
+    "description": "Generate high-quality content, blog posts, and copy instantly with AI.",
+    "price": 29.00,
+    "period": "monthly",
+    "tag": "Popular",
+    "tagType": "primary",
+    "features": ["Unlimited Words", "50+ Templates", "Export to PDF"],
+    "icon": "/assets/products/writing.png"
+  },
+  {
+    "id": 2,
+    "name": "Design Templates Pack",
+    "description": "Premium mockups, UI kits, and vector assets for professional creators.",
+    "price": 49.00,
+    "period": "one-time",
+    "tag": "Best Seller",
+    "tagType": "secondary",
+    "features": ["1000+ Assets", "Figma & PSD", "Commercial License"],
+    "icon": "/assets/products/design-tool.png"
+  },
+  {
+    "id": 3,
+    "name": "Premium Stock Assets",
+    "description": "High-resolution photos and videos for your next big project.",
+    "price": 19.00,
+    "period": "monthly",
+    "tag": "New",
+    "tagType": "accent",
+    "features": ["4K Video Clips", "Royalty-Free", "Daily Updates"],
+    "icon": "/assets/products/portfolio.png"
+  },
+  {
+    "id": 4,
+    "name": "Automation Toolkit",
+    "description": "Automate your workflow and connect all your favorite apps seamlessly.",
+    "price": 79.00,
+    "period": "yearly",
+    "tag": "Enterprise",
+    "tagType": "warning",
+    "features": ["Zapier Alternative", "Unlimited Tasks", "API Access"],
+    "icon": "/assets/products/operation.png"
+  },
+  {
+    "id": 5,
+    "name": "Resume Builder Pro",
+    "description": "Create ATS-friendly resumes and cover letters in minutes.",
+    "price": 15.00,
+    "period": "one-time",
+    "tag": "Essential",
+    "tagType": "info",
+    "features": ["ATS Optimization", "Multiple Templates", "Export to PDF"],
+    "icon": "/assets/products/shopping-cart.png"
+  },
+  {
+    "id": 6,
+    "name": "Social Media Content Kit",
+    "description": "Ready-to-use posts and stories to boost your online presence.",
+    "price": 39.00,
+    "period": "one-time",
+    "tag": "Trending",
+    "tagType": "success",
+    "features": ["365 Days Content", "Canva Editable", "Hashtag Strategy"],
+    "icon": "/assets/products/social-media.png"
+  }
+]
