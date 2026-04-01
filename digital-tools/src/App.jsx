@@ -37,7 +37,7 @@ function App() {
   };
 
   return (
-    <div className="bg-white min-h-screen pb-20 font-sans">
+    <div className="bg-white min-h-screen font-sans">
       
       {/* Navbar */}
       <nav className="flex justify-between items-center py-5 px-6 md:px-16 bg-white sticky top-0 z-50 shadow-sm">
@@ -403,6 +403,80 @@ function App() {
           </p>
         </div>
       </section>
+      {/* Footer */}
+      <footer className="bg-[#0b1121] pt-20 pb-10 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 mb-16">
+            
+            {/* Logo & Description */}
+            <div className="lg:col-span-2">
+              <h2 className="text-3xl font-extrabold text-white mb-6">DigiTools</h2>
+              <p className="text-gray-400 leading-relaxed max-w-sm">
+                Premium digital tools for creators, professionals, and businesses. Work smarter with our suite of powerful tools.
+              </p>
+            </div>
+            
+            {/* Product Links */}
+            <div>
+              <h4 className="text-lg font-medium text-white mb-6">Product</h4>
+              <ul className="space-y-4 text-gray-400">
+                <li><a href="#" className="hover:text-white transition">Features</a></li>
+                <li><a href="#" className="hover:text-white transition">Pricing</a></li>
+                <li><a href="#" className="hover:text-white transition">Templates</a></li>
+                <li><a href="#" className="hover:text-white transition">Integrations</a></li>
+              </ul>
+            </div>
+
+            {/* Company Links */}
+            <div>
+              <h4 className="text-lg font-medium text-white mb-6">Company</h4>
+              <ul className="space-y-4 text-gray-400">
+                <li><a href="#" className="hover:text-white transition">About</a></li>
+                <li><a href="#" className="hover:text-white transition">Blog</a></li>
+                <li><a href="#" className="hover:text-white transition">Careers</a></li>
+                <li><a href="#" className="hover:text-white transition">Press</a></li>
+              </ul>
+            </div>
+
+            {/* Resources Links */}
+            <div>
+              <h4 className="text-lg font-medium text-white mb-6">Resources</h4>
+              <ul className="space-y-4 text-gray-400">
+                <li><a href="#" className="hover:text-white transition">Documentation</a></li>
+                <li><a href="#" className="hover:text-white transition">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition">Community</a></li>
+                <li><a href="#" className="hover:text-white transition">Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Social Links - Fixed Extra Background */}
+            <div>
+              <h4 className="text-lg font-medium text-white mb-6">Social Links</h4>
+              <div className="flex gap-4">
+                <a href="#" className="hover:opacity-80 transition hover:-translate-y-1 transform duration-300">
+                  <img src="./assets/Social%20Icon/Instagram.png" alt="Instagram" className="w-10 h-10 object-contain" />
+                </a>
+                <a href="#" className="hover:opacity-80 transition hover:-translate-y-1 transform duration-300">
+                  <img src="./assets/Social%20Icon/Facebook.png" alt="Facebook" className="w-10 h-10 object-contain" />
+                </a>
+                <a href="#" className="hover:opacity-80 transition hover:-translate-y-1 transform duration-300">
+                  <img src="./assets/Social%20Icon/Twitter.png" alt="Twitter" className="w-10 h-10 object-contain" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright Area */}
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
+            <p>© 2026 Digitools. All rights reserved.</p>
+            <div className="flex gap-6">
+              <a href="#" className="hover:text-white transition">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition">Terms of Service</a>
+              <a href="#" className="hover:text-white transition">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </footer>
 
 
       <ToastContainer position="top-right" autoClose={2000} />
