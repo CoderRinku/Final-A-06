@@ -1,16 +1,46 @@
-import React, { useState } from 'react';
-import { ToastContainer } from 'react-toastify';
+import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [activeTab, setActiveTab] = useState('products');
+
+  useEffect(() => {
+    fetch('./products.json')
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, []);
+
+  const handleAddToCart = (product) => {
+    const isExist = cart.find(item => item.id === product.id);
+    if (isExist) {
+      toast.warning('Product is already in the cart!');
+    } else {
+      setCart([...cart, product]);
+      toast.success(`${product.name} added to cart!`);
+    }
+  };
+
+  const handleRemoveFromCart = (id) => {
+    const updatedCart = cart.filter(item => item.id !== id);
+    setCart(updatedCart);
+    toast.info('Item removed from cart!');
+  };
+
+  const getBadgeStyle = (tag) => {
+    if (tag === 'Best Seller') return 'bg-[#FFF5E5] text-[#FF9900]';
+    if (tag === 'Popular') return 'bg-[#F3E8FF] text-[#8B5CF6]';
+    if (tag === 'New') return 'bg-[#E6F4EA] text-[#34A853]';
+    return 'bg-gray-100 text-gray-600';
+  };
 
   return (
     <div className="bg-white min-h-screen pb-20 font-sans">
       
       {/* Navbar */}
-      <nav className="flex justify-between items-center py-5 px-6 md:px-16 bg-white sticky top-0 z-50">
+      <nav className="flex justify-between items-center py-5 px-6 md:px-16 bg-white sticky top-0 z-50 shadow-sm">
         <div className="text-3xl font-extrabold text-[#7e22ce] cursor-pointer">
           DigiTools
         </div>
@@ -66,11 +96,7 @@ function App() {
           </div>
         </div>
         <div className="md:w-[45%] mt-12 md:mt-0 flex justify-end">
-          <img 
-            src="./assets/banner.png" 
-            alt="Digital Workflow Background" 
-            className="w-full max-w-lg object-contain drop-shadow-2xl" 
-          />
+          <img src="./assets/banner.png" alt="Digital Workflow Background" className="w-full max-w-lg object-contain drop-shadow-2xl" />
         </div>
       </header>
 
@@ -93,6 +119,150 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Main Content Area */}
+      <main className="max-w-7xl mx-auto px-6 pt-24 pb-10">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-extrabold text-[#101727] mb-4">Premium Digital Tools</h2>
+          <p className="text-[#627382] text-lg max-w-2xl mx-auto">
+            Choose from our curated collection of premium digital products designed to boost your productivity and creativity.
+          </p>
+        </div>
+
+        <div className="flex justify-center mb-16">
+          <div className="flex p-1.5 bg-white border border-gray-200 rounded-full shadow-sm">
+            <button 
+              onClick={() => setActiveTab('products')}
+              className={`px-8 py-2.5 rounded-full font-semibold transition-all duration-300 ${activeTab === 'products' ? 'bg-[#8b5cf6] text-white shadow-md' : 'text-gray-600 hover:text-gray-900'}`}
+            >
+              Products
+            </button>
+            <button 
+              onClick={() => setActiveTab('cart')}
+              className={`px-8 py-2.5 rounded-full font-semibold transition-all duration-300 ${activeTab === 'cart' ? 'bg-[#8b5cf6] text-white shadow-md' : 'text-gray-600 hover:text-gray-900'}`}
+            >
+              Cart ({cart.length})
+            </button>
+          </div>
+        </div>
+
+        {/* Products Grid */}
+        {activeTab === 'products' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map(product => (
+              <div key={product.id} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow duration-300 flex flex-col">
+                <div className="flex justify-between items-start mb-6">
+                  
+                  {/* Updated Icon Container from Figma */}
+                  <div className="w-[60px] h-[60px] rounded-full bg-white border border-[#F2F2F2] flex items-center justify-center p-3 flex-shrink-0">
+                    <img src={product.icon} alt={product.name} className="w-full h-full object-contain" />
+                  </div>
+                  
+                  {product.tag && (
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${getBadgeStyle(product.tag)}`}>
+                      {product.tag}
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="text-xl font-bold text-[#101727] mb-2">{product.name}</h3>
+                <p className="text-[#627382] text-sm leading-relaxed mb-6 flex-grow">{product.description}</p>
+                
+                <div className="flex items-baseline gap-1 mb-6">
+                  <span className="text-3xl font-extrabold text-[#101727]">${product.price}</span>
+                  <span className="text-gray-400 font-medium text-sm">/{product.period === 'one-time' ? 'One-Time' : 'Mo'}</span>
+                </div>
+
+                <ul className="space-y-3 mb-8">
+                  {product.features?.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-[#627382] text-sm font-medium">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-[#34A853]">
+                        <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <button 
+                  onClick={() => handleAddToCart(product)}
+                  className="w-full bg-[#8b5cf6] hover:bg-[#7e22ce] text-white font-bold py-3.5 rounded-full transition duration-300 mt-auto"
+                >
+                  Buy Now
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Cart Section */}
+        {activeTab === 'cart' && (
+          <div className="max-w-4xl mx-auto bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]">
+            <h3 className="text-2xl font-bold text-[#101727] mb-8">Your Cart</h3>
+            
+            {cart.length === 0 ? (
+              <div className="text-center py-10">
+                <p className="text-[#627382] text-lg">Your cart is empty right now.</p>
+                <button 
+                  onClick={() => setActiveTab('products')} 
+                  className="mt-6 text-[#8b5cf6] font-semibold hover:underline"
+                >
+                  Browse Products
+                </button>
+              </div>
+            ) : (
+              <div>
+                <div className="space-y-6 mb-10">
+                  {cart.map((item, index) => (
+                    <div key={index} className="flex items-center justify-between border-b border-gray-100 pb-6 last:border-0 last:pb-0">
+                      <div className="flex items-center gap-4">
+                        
+                        {/* Updated Icon Container for Cart too */}
+                        <div className="w-[60px] h-[60px] rounded-full bg-white border border-[#F2F2F2] flex items-center justify-center p-3 flex-shrink-0">
+                           <img src={item.icon} alt={item.name} className="w-full h-full object-contain" />
+                        </div>
+
+                        <div>
+                          <h4 className="font-bold text-[#101727]">{item.name}</h4>
+                          <p className="text-sm text-[#627382]">{item.period === 'one-time' ? 'One-Time' : 'Monthly'}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4 md:gap-6">
+                        <span className="font-extrabold text-[#101727]">${item.price}</span>
+                        <button 
+                          onClick={() => handleRemoveFromCart(item.id)}
+                          className="text-red-500 hover:text-red-700 font-medium text-sm transition px-2 py-1 rounded-md hover:bg-red-50"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="bg-gray-50 rounded-xl p-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                  <div>
+                    <p className="text-[#627382] text-sm font-medium mb-1">Total Amount</p>
+                    <p className="text-3xl font-extrabold text-[#101727]">
+                      ${cart.reduce((total, item) => total + item.price, 0).toFixed(2)}
+                    </p>
+                  </div>
+                  <button 
+                    onClick={() => {
+                      toast.success('Purchase successful! Thank you.');
+                      setCart([]);
+                      setActiveTab('products');
+                    }}
+                    className="w-full md:w-auto bg-[#8b5cf6] hover:bg-[#7e22ce] text-white font-bold px-10 py-4 rounded-full transition duration-300"
+                  >
+                    Proceed to Checkout
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </main>
 
       <ToastContainer position="top-right" autoClose={2000} />
     </div>
