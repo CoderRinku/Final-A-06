@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="bg-white min-h-screen pb-20 font-sans">
       
-      {/* --- Navbar Section --- */}
+      {/* Navbar */}
       <nav className="flex justify-between items-center py-5 px-6 md:px-16 bg-white sticky top-0 z-50">
         <div className="text-3xl font-extrabold text-[#7e22ce] cursor-pointer">
           DigiTools
@@ -42,44 +42,29 @@ function App() {
         </div>
       </nav>
 
-      {/* --- Banner Section --- */}
+      {/* Banner */}
       <header className="pt-16 pb-20 px-6 md:px-16 flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto">
-        
-        {/* Left Side: Text Content */}
         <div className="md:w-[55%] flex flex-col items-start text-left">
-          
-          {/* Badge - Updated to 16px (text-base) Medium (font-medium) */}
           <div className="flex items-center gap-2 bg-[#E1E7FF] text-[#8b5cf6] px-5 py-2.5 rounded-full text-base font-medium mb-6">
             <span className="w-2.5 h-2.5 bg-[#8b5cf6] rounded-full"></span> 
             New: AI-Powered Tools Available
           </div>
-
-          {/* Heading */}
           <h1 className="text-5xl lg:text-7xl font-extrabold text-[#101727] leading-[1.1] tracking-tight mb-6">
             Supercharge Your <br /> Digital Workflow
           </h1>
-
-          {/* Paragraph - Updated to 18px (text-lg) Regular (font-normal) */}
           <p className="text-[#627382] text-lg font-normal max-w-xl leading-relaxed mb-10">
             Access premium AI tools, design assets, templates, and productivity software—all in one place. Start creating faster today.
           </p>
-
-          {/* Buttons */}
           <div className="flex flex-wrap items-center gap-5">
             <button className="bg-[#8b5cf6] hover:bg-[#7e22ce] text-white font-semibold px-8 py-3.5 rounded-full transition duration-300 text-lg">
               Explore Products
             </button>
-            
-            <button className="flex items-center gap-2 border border-[#8b5cf6] text-[#8b5cf6] hover:bg-[#E1E7FF] font-semibold px-8 py-3.5 rounded-full transition duration-300 text-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-              </svg>
+            <button className="flex items-center gap-3 border border-[#8b5cf6] text-[#8b5cf6] hover:bg-[#E1E7FF] font-semibold px-8 py-3.5 rounded-full transition duration-300 text-lg">
+              <img src="./assets/Play.png" alt="Play Icon" className="w-5 h-5 object-contain" />
               Watch Demo
             </button>
           </div>
         </div>
-
-        {/* Right Side: Image */}
         <div className="md:w-[45%] mt-12 md:mt-0 flex justify-end">
           <img 
             src="./assets/banner.png" 
@@ -89,7 +74,26 @@ function App() {
         </div>
       </header>
 
-      {/* Toast Container for Alerts */}
+      {/* Stats */}
+      <section className="w-full bg-gradient-to-r from-[#6b3deb] via-[#8545f4] to-[#a83cf1] py-14 mt-10">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0">
+          <div className="flex flex-col items-center flex-1">
+            <h2 className="text-4xl md:text-[44px] font-extrabold text-white mb-2 tracking-wide">50K+</h2>
+            <p className="text-white/80 text-base md:text-lg font-normal">Active Users</p>
+          </div>
+          <div className="hidden md:block w-px h-16 bg-white/25"></div>
+          <div className="flex flex-col items-center flex-1">
+            <h2 className="text-4xl md:text-[44px] font-extrabold text-white mb-2 tracking-wide">200+</h2>
+            <p className="text-white/80 text-base md:text-lg font-normal">Premium Tools</p>
+          </div>
+          <div className="hidden md:block w-px h-16 bg-white/25"></div>
+          <div className="flex flex-col items-center flex-1">
+            <h2 className="text-4xl md:text-[44px] font-extrabold text-white mb-2 tracking-wide">4.9</h2>
+            <p className="text-white/80 text-base md:text-lg font-normal">Rating</p>
+          </div>
+        </div>
+      </section>
+
       <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );
