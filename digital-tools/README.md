@@ -1,16 +1,35 @@
-# React + Vite
+# DigiTools - Premium Digital Tools Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the repository of **DigiTools**, a modern and interactive Single Page Application (SPA) built with React and Tailwind CSS. This project was developed to showcase a pixel-perfect, responsive UI with seamless cart functionality.
 
-Currently, two official plugins are available:
+## 🌐 Live Website
+[Click here to visit DigiTools Live](https://coderrinku.github.io/Final-A-06/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Key Features
 
-## React Compiler
+- **Interactive Shopping Cart:** Users can smoothly add products to their cart, remove items, and see the total amount calculated in real-time.
+- **Dynamic Data Loading:** All product information (images, prices, features) is fetched dynamically from a local JSON data structure.
+- **Smart Validation:** The app checks if a product is already in the cart and alerts the user, preventing duplicate entries.
+- **Real-time Notifications:** Implemented `react-toastify` to show beautiful, instant alerts for user actions (like adding/removing items or successful checkout).
+- **Pixel-Perfect & Responsive UI:** The design strictly follows the provided Figma file, using Tailwind CSS to ensure it looks great on mobile, tablet, and desktop devices.
+- **Smooth Tab Navigation:** Users can instantly toggle between the 'Products' view and the 'Cart' view without any page reloads.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 💻 Technologies Used
 
-## Expanding the ESLint configuration
+- **Core Library:** React.js (Hooks like useState, useEffect)
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+- **Components/Alerts:** React Toastify
+- **Hosting:** GitHub Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Run This Project Locally
+
+If you want to run this project on your local machine, follow these steps:
+
+1. Clone the repository: 
+   `git clone https://github.com/CoderRinku/Final-A-06.git`
+2. Open the folder in your terminal and navigate to the project directory.
+3. Install the required dependencies: 
+   `npm install`
+4. Start the local development server: 
+   `npm run dev`
