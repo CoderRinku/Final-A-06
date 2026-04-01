@@ -301,6 +301,85 @@ function App() {
           </div>
         </div>
       </section>
+      {/* Pricing */}
+      <section className="bg-[#ffffff] py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Simple, Transparent Pricing</h2>
+            <p className="text-gray-400 text-lg">Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
+            
+            {/* Starter Plan */}
+            <div className="bg-white rounded-3xl p-8 lg:p-10 text-left">
+              <h3 className="text-2xl font-bold text-[#101727] mb-2">Starter</h3>
+              <p className="text-[#627382] mb-6 text-sm">Perfect for getting started</p>
+              <div className="flex items-baseline gap-1 mb-8">
+                <span className="text-5xl font-extrabold text-[#101727]">$0</span>
+                <span className="text-[#627382] font-medium">/Month</span>
+              </div>
+              <ul className="space-y-4 mb-8">
+                {['Access to 10 free tools', 'Basic templates', 'Community support', '1 project per month'].map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-[#627382] font-medium">
+                    <svg className="w-5 h-5 text-[#34A853] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full bg-[#8b5cf6] hover:bg-[#7e22ce] text-white font-bold py-3.5 rounded-full transition duration-300">
+                Get Started Free
+              </button>
+            </div>
+
+            {/* Pro Plan */}
+            <div className="bg-[#8b5cf6] rounded-3xl p-8 lg:p-10 text-left relative transform md:-translate-y-4 shadow-2xl shadow-purple-900/50">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#FFF5E5] text-[#FF9900] px-4 py-1 rounded-full text-sm font-bold shadow-md">
+                Most Popular
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2 mt-2">Pro</h3>
+              <p className="text-white/80 mb-6 text-sm">Best for professionals</p>
+              <div className="flex items-baseline gap-1 mb-8">
+                <span className="text-5xl font-extrabold text-white">$29</span>
+                <span className="text-white/80 font-medium">/Month</span>
+              </div>
+              <ul className="space-y-4 mb-8">
+                {['Access to all premium tools', 'Unlimited templates', 'Priority support', 'Unlimited projects', 'Cloud sync', 'Advanced analytics'].map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-white font-medium">
+                    <svg className="w-5 h-5 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full bg-white text-[#8b5cf6] hover:bg-gray-50 font-bold py-3.5 rounded-full transition duration-300">
+                Start Pro Trial
+              </button>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="bg-white rounded-3xl p-8 lg:p-10 text-left">
+              <h3 className="text-2xl font-bold text-[#101727] mb-2">Enterprise</h3>
+              <p className="text-[#627382] mb-6 text-sm">For teams and businesses</p>
+              <div className="flex items-baseline gap-1 mb-8">
+                <span className="text-5xl font-extrabold text-[#101727]">$99</span>
+                <span className="text-[#627382] font-medium">/Month</span>
+              </div>
+              <ul className="space-y-4 mb-8">
+                {['Everything in Pro', 'Team collaboration', 'Custom integrations', 'Dedicated support', 'SLA guarantee', 'Custom branding'].map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-[#627382] font-medium">
+                    <svg className="w-5 h-5 text-[#34A853] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full bg-[#8b5cf6] hover:bg-[#7e22ce] text-white font-bold py-3.5 rounded-full transition duration-300">
+                Contact Sales
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
 
       <ToastContainer position="top-right" autoClose={2000} />
