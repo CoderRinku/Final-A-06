@@ -380,6 +380,29 @@ function App() {
           </div>
         </div>
       </section>
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-[#6b3deb] via-[#8545f4] to-[#a83cf1] py-20 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+          {/* Updated Font Size to 40px exactly as per Figma */}
+          <h2 className="text-[40px] font-extrabold text-white mb-6 tracking-tight leading-tight">
+            Ready To Transform Your Workflow?
+          </h2>
+          <p className="text-white/80 text-lg mb-10 leading-relaxed">
+            Join thousands of professionals who are already using Digitools to work smarter. <br className="hidden md:block" /> Start your free trial today.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-10">
+            <button className="w-full sm:w-auto bg-white text-[#8b5cf6] hover:bg-gray-50 font-bold px-8 py-3.5 rounded-full transition duration-300 shadow-lg shadow-purple-900/20">
+              Explore Products
+            </button>
+            <button className="w-full sm:w-auto bg-transparent border border-white text-white hover:bg-white/10 font-bold px-8 py-3.5 rounded-full transition duration-300">
+              View Pricing
+            </button>
+          </div>
+          <p className="text-white/60 text-sm font-medium tracking-wide">
+            14-day free trial • No credit card required • Cancel anytime
+          </p>
+        </div>
+      </section>
 
 
       <ToastContainer position="top-right" autoClose={2000} />
